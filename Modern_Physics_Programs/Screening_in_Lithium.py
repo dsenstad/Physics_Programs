@@ -7,7 +7,7 @@ def P_2s(r):
 
 num_of_rs = 0
 total_Z = 0
-total_iterations = 1
+total_iterations = 10
 
 while True:
     rad = random.uniform(0, 15) # generates a random radius between 0 to 15
