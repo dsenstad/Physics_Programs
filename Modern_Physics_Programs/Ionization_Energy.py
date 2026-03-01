@@ -36,6 +36,7 @@ def generate_subshell_order():
 def find_n(Z):
     remaining_subshells = generate_subshell_order()
     remaining_z = Z
+    Z_eff = 1
     
     #Track the largest principle number by looking at the first value in each orbital's tuplet
     highest_n = remaining_subshells[0][0] 
@@ -44,10 +45,18 @@ def find_n(Z):
         # the full oribital from the list of remaining orbitals
         if (remaining_subshells[0][-1] == 0):
             remaining_subshells.pop(0)
+            Z_eff = 1
             if (remaining_subshells[0][0] > highest_n):
                 highest_n = remaining_subshells[0][0]
+        else:
+            Z_eff += 0.5
         # Decrement the tuplet corresponding to hoe many electrons can still
         # be placed in the tuplet and how many electrons are left to be placed
         remaining_subshells[0][-1] -= 1
         remaining_z -= 1
-    return highest_n
+    return (highest_n, Z_eff)
+
+i = 1
+while i < 100:
+    print(f"For element {i} the quantum number n and Z_eff is {find_n(i)}")
+    i += 1
