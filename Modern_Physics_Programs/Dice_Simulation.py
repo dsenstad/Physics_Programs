@@ -14,11 +14,14 @@ to its highest entropy microstate.
 N = 1000
 
 # Number of times dice are randomized
-rolls = 5000
+rolls = 3000
+
+# Starting value
+start_val = 6
 
 # Initializes array of dice values all starting at 1
-Dice_Values = [1] * N
-Average_Dice_Values = [1]
+Dice_Values = [start_val] * N
+Average_Dice_Values = [start_val]
 
 # Percantage change that a die changes value
 percent = 1
